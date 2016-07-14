@@ -1,0 +1,19 @@
+{
+  "name": "meanio-messages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssmlee04/meanio-messages.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssmlee04/meanio-messages/issues"
+  },
+  "homepage": "https://github.com/ssmlee04/meanio-messages#readme"
+}
