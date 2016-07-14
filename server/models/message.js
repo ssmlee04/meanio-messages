@@ -112,9 +112,9 @@ MessageSchema.statics.remove = function(userId, targetId, messageId) {
   var that = this;
   return Promise.resolve()
   .then(function() {
-    return Promise.cast(that.update({user_id: userId, target_id: targetId, "messages.message_id": messageId}, {$pop: {"messages": {message_id: messageId}}}).exec());
+    return Promise.cast(that.update({user_id: userId, target_id: targetId, "messages.message_id": messageId}, {$pull: {"messages": {message_id: messageId}}}).exec());
   }).then(function() {
-    return Promise.cast(that.update({user_id: targetId, target_id: userId, "messages.message_id": messageId}, {$pop: {"messages": {message_id: messageId}}}).exec());
+    return Promise.cast(that.update({user_id: targetId, target_id: userId, "messages.message_id": messageId}, {$pull: {"messages": {message_id: messageId}}}).exec());
   })
 };
 
