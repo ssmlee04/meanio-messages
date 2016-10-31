@@ -6,7 +6,7 @@ var path = require("path");
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var config = require("meanio").loadConfig();
-var utils = require(path.join(config.root, "/config/utils"));
+var randomstring = require("randomstring");
 
 var MessageSchema = new Schema({
   message_id: { 
@@ -94,7 +94,7 @@ MessageSchema.statics.read = function(userId, targetId, messageId) {
 
 MessageSchema.statics.add = function(userId, targetId, info) {
   var that = this;
-  var messageId = utils.getRandomString(24)
+  var messageId = randomstring.generate(24)
   info.message_id = messageId
 
   return Promise.resolve()

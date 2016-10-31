@@ -15,7 +15,7 @@ var Message = mongoose.model("Message");
 var Usermessage = mongoose.model("Usermessage");
 var config = require("meanio").loadConfig();
 var testutils = require(path.join(config.root, "/config/testutils"));
-var utils = require(path.join(config.root, "/config/utils"));
+var randomstring = require("randomstring");
 
 /**
  * Globals
@@ -122,7 +122,7 @@ describe("<Unit Test>", function() {
       });
 
       it("should fail to send a message when userId is incorrect (send)", function(done) {
-        var userId = utils.getRandomString(16);
+        var userId = randomstring.generate(16);
         var targetId = savedusers[1]._id;
         var message = {
           title: "title",
@@ -139,7 +139,7 @@ describe("<Unit Test>", function() {
 
       it("should fail to send a message when targetId is incorrect (send)", function(done) {
         var userId = savedusers[0]._id;
-        var targetId = utils.getRandomString(24);
+        var targetId = randomstring.generate(16);
         var message = {
           title: "title",
           body: "body"
